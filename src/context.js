@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { storeProducts, detailProduct } from "./data";
 import { db } from "./firebase";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -249,17 +248,18 @@ class ProductProvider extends Component {
   clearAlert = () => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Êtes-vous sûr?",
+      text: "vous ne pourrez pas revenir en arrière!",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Oui, vider mon panier",
+      cancelButtonText: "Annuler"
     }).then(result => {
       if (result.value) {
         this.clearCart();
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("Panier vide!", "Votre panier a été vidé.", "success");
       }
     });
   };

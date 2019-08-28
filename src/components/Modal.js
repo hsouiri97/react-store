@@ -22,9 +22,9 @@ export default class Modal extends Component {
                   <div className="row" id="modal-header">
                     <div className="col-10 col-md-10 col-lg-12 text-center">
                       <h2 className="text-uppercase">
-                        Le produit a bien été ajouté a votre panier
+                        Votre article a bien été ajouté à votre panier
                       </h2>
-                      <p>ATTTENTION ! LIVRAISON EN MAROC UNIQUEMENT.</p>
+                      <p>ATTTENTION ! LIVRAISON AU MAROC UNIQUEMENT.</p>
                     </div>
                   </div>
                   {/* end modal header */}
@@ -41,7 +41,7 @@ export default class Modal extends Component {
                       </h5>
                       <h3 className="text-danger">{price.toFixed(2)} DH</h3>
                       <p className="lead">
-                        ( dont éco-part : {(price * 0.3).toFixed(2)} DH )
+                        ( Vous économiserez : {(price * 0.3).toFixed(2)} DH )
                       </p>
                       <p className="text-muted">{quantity} disponibles</p>
                       <h4>
