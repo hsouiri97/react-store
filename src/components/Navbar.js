@@ -8,7 +8,7 @@ import { FaAlignRight, FaShoppingCart } from "react-icons/fa";
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark navbar-inverse bg-dark sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-dark navbar-inverse bg-info sticky-top">
         <div className="container">
           <Link to="/">
             <div className="navbar-brand">MON SMARTPHONE</div>
