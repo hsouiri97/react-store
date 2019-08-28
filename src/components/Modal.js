@@ -10,14 +10,14 @@ export default class Modal extends Component {
       <ProductConsumer>
         {value => {
           const { modalOpen, closeModal } = value;
-          const { img, title, company, price } = value.modalProduct;
+          const { img, title, company, price, quantity } = value.modalProduct;
 
           if (!modalOpen) {
             return null;
           } else {
             return (
               <ModalContainer>
-                <div className="container">
+                <div className="container cotainer-modal">
                   {/* modal header */}
                   <div className="row" id="modal-header">
                     <div className="col-10 col-md-10 col-lg-12 text-center">
@@ -43,7 +43,7 @@ export default class Modal extends Component {
                       <p className="lead">
                         ( dont éco-part : {(price * 0.3).toFixed(2)} DH )
                       </p>
-
+                      <p className="text-muted">{quantity} disponibles</p>
                       <h4>
                         Garantie Légale
                         <i className="fa fa-question-circle ml-1" />
@@ -61,7 +61,7 @@ export default class Modal extends Component {
                   <div className="row py-3 px-2" id="modal-footer">
                     <div className="col-0 col-md-2 col-lg-6" />
                     <div className="col-6 col-md-5 col-lg-3">
-                      <Link to="/">
+                      <Link to="/products">
                         <ButtonContainer
                           className="text-uppercase"
                           onClick={() => {
@@ -107,7 +107,7 @@ const ModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 9999;
   width: 100%;
   height: 100%;
   overflow-y: auto;
