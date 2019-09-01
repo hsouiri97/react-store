@@ -6,6 +6,7 @@ import "jquery/dist/jquery.min.js";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
+import ProductsContainer from "./components/ProductsContainer";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
@@ -20,7 +21,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/products" component={ProductList} />
+        <Route path="/products" component={ProductsContainer} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
         <Route component={Default} />

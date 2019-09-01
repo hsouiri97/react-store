@@ -10,18 +10,27 @@ class ProductProvider extends Component {
   state = {
     products: [],
     virginProducts: [],
+    sortedProducts: [],
     detailProduct: {},
     cart: [],
     modalOpen: false,
     modalProduct: {},
     cartSubTotal: 0,
     cartShipping: 0,
-    cartTotal: 0
+    cartTotal: 0,
+    //filter default values
+    type: "tout",
+    company: "tout",
+    price: 0,
+    minPrice: 0,
+    maxPrice: 0
   };
   componentDidMount() {
     //this.setProducts();
-    this._isMounted = true;
+    //this._isMounted = true;
+
     this.getData();
+
     this.setState(() => {
       return {
         detailProduct: !localStorage.getItem("detailProduct")
@@ -43,7 +52,7 @@ class ProductProvider extends Component {
     });
   }
 
-  getData = () => {
+  getData() {
     let tempProducts = [];
     let virgins = [];
     db.collection("products")
@@ -57,13 +66,18 @@ class ProductProvider extends Component {
           virgins = [...virgins, { ...singleItem }];
           tempProducts = [...tempProducts, singleItem];
         });
+        let maxPrice = Math.max(...tempProducts.map(product => product.price));
         this.setState(
           () => {
             return {
               products: !localStorage.getItem("products")
                 ? tempProducts
                 : JSON.parse(localStorage.getItem("products")),
-              virginProducts: virgins
+              sortedProducts: !localStorage.getItem("products")
+                ? tempProducts
+                : JSON.parse(localStorage.getItem("products")),
+              virginProducts: virgins,
+              maxPrice
             };
           },
           () => {
@@ -76,10 +90,11 @@ class ProductProvider extends Component {
               "virginsProducts[0].inCart: " +
                 this.state.virginProducts[0].inCart
             );*/
+            console.log(this.state.maxPrice, this.state.sortedProducts);
           }
         );
       });
-  };
+  }
 
   getItem = id => {
     return this.state.products.find(item => item.id === id);
@@ -293,6 +308,39 @@ class ProductProvider extends Component {
     );
   };
 
+  handleChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = event.target.name;
+
+    this.setState({ [name]: value }, this.filterProducts);
+  };
+
+  filterProducts = () => {
+    let { products, type, company, price } = this.state;
+    //transforming values
+    price = parseFloat(price);
+    let tempProducts = [...products];
+    //filter by type
+    if (type != "tout") {
+      tempProducts = tempProducts.filter(item => item.type === type);
+    }
+
+    //filter by comapany
+    if (company != "tout") {
+      tempProducts = tempProducts.filter(item => item.company === company);
+    }
+
+    //filter by price
+    if (price !== 0) {
+      tempProducts = tempProducts.filter(item => item.price <= price);
+    }
+
+    this.setState(() => {
+      return { sortedProducts: tempProducts };
+    });
+  };
+
   render() {
     return (
       <ProductContext.Provider
@@ -306,7 +354,9 @@ class ProductProvider extends Component {
           changeCount: this.changeCount,
           removeFromCart: this.removeFromCart,
           clearCart: this.clearCart,
-          clearAlert: this.clearAlert
+          clearAlert: this.clearAlert,
+          handleChange: this.handleChange,
+          filterProducts: this.filterProducts
         }}
       >
         {this.props.children}
@@ -317,4 +367,14 @@ class ProductProvider extends Component {
 
 const ProductConsumer = ProductContext.Consumer;
 
-export { ProductProvider, ProductConsumer };
+export function withProductContext(Component) {
+  return function ConsumerWrapper(props) {
+    return (
+      <ProductConsumer>
+        {value => <Component {...props} context={value} />}
+      </ProductConsumer>
+    );
+  };
+}
+
+export { ProductProvider, ProductConsumer, ProductContext };

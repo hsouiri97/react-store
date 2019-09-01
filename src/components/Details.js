@@ -15,6 +15,7 @@ export default class Details extends Component {
             info,
             price,
             title,
+            type,
             inCart
           } = value.detailProduct;
           return (
@@ -23,6 +24,7 @@ export default class Details extends Component {
               <div className="row">
                 <div className="col-10 mx-auto text-center text-blue my-5">
                   <h1>{title}</h1>
+                  <p className="lead text-capitalize">{type}</p>
                 </div>
               </div>
               {/* end title */}

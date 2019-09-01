@@ -51,11 +51,21 @@ export default class ProductList extends Component {
     return (
       <React.Fragment>
         <div className="container">
-          <Title name="Nos" title="produits" />
           <div className="row">
             <ProductConsumer>
               {value => {
-                return value.products.map(product => {
+                if (value.sortedProducts.length === 0) {
+                  return (
+                    <div className="text-uppercase col-9 col-md-9 col-lg-9 text-center mx-auto">
+                      <h3>
+                        Malheureusement, aucun produit ne correspond à vos
+                        paramètres de recherche
+                      </h3>
+                    </div>
+                  );
+                }
+
+                return value.sortedProducts.map(product => {
                   return <Product key={product.id} product={product} />;
                   //we could pass the methods also as props but instead we will acceess them in
                   //Product.js also with the ProductConsumer
