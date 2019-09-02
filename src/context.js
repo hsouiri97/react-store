@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { db } from "./firebase";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Redirect } from "react-router-dom";
 
 const ProductContext = React.createContext();
 
@@ -90,7 +89,7 @@ class ProductProvider extends Component {
               "virginsProducts[0].inCart: " +
                 this.state.virginProducts[0].inCart
             );*/
-            console.log(this.state.maxPrice, this.state.sortedProducts);
+            //console.log(this.state.maxPrice, this.state.sortedProducts);
           }
         );
       });

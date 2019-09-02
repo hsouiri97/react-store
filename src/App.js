@@ -12,24 +12,27 @@ import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
+import ScrollTop from "./components/ScrollTop";
 
 import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <React.Fragment>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/products" component={ProductsContainer} />
-        <Route path="/details" component={Details} />
-        <Route path="/cart" component={Cart} />
-        <Route component={Default} />
-      </Switch>
-      <Modal />
+    <ScrollTop>
+      <React.Fragment>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={ProductsContainer} />
+          <Route path="/details" component={Details} />
+          <Route path="/cart" component={Cart} />
+          <Route component={Default} />
+        </Switch>
+        <Modal />
 
-      <Footer />
-    </React.Fragment>
+        <Footer />
+      </React.Fragment>
+    </ScrollTop>
   );
 }
 
