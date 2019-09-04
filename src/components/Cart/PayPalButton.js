@@ -7,22 +7,11 @@ export default class MyApp extends React.Component {
     db.collection("orders")
       .add({
         order,
-        dateCreated: new Date().toLocaleString()
+        dateCreated: new Date().toLocaleString(),
+        client
       })
       .then(docRef => {
         console.log("Document written with ID: ", docRef.id);
-        db.collection("orders")
-          .doc(docRef.id)
-          .collection("clients")
-          .add({
-            client
-          })
-          .then(docRef => {
-            console.log("Document 2 written with ID: ", docRef.id);
-          })
-          .catch(error => {
-            console.error("Error adding document 2: ", error);
-          });
       })
       .catch(error => {
         console.error("Error adding document: ", error);
