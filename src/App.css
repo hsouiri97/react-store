@@ -53,6 +53,7 @@ body {
 .cart-icon {
   cursor: pointer;
   font-size: 1.4rem;
+  color: #fafafa;
 }
 
 .cart-icon:hover {

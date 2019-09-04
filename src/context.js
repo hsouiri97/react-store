@@ -322,12 +322,16 @@ class ProductProvider extends Component {
     let tempProducts = [...products];
     //filter by type
     if (type != "tout") {
-      tempProducts = tempProducts.filter(item => item.type === type);
+      tempProducts = tempProducts.filter(
+        item => item.type.toLowerCase() === type.toLowerCase()
+      );
     }
 
     //filter by comapany
     if (company != "tout") {
-      tempProducts = tempProducts.filter(item => item.company === company);
+      tempProducts = tempProducts.filter(
+        item => item.company.toLowerCase() === company.toLowerCase()
+      );
     }
 
     //filter by price

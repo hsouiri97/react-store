@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "./Button";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 export default class Details extends Component {
   render() {
@@ -11,13 +13,15 @@ export default class Details extends Component {
           const {
             id,
             company,
-            img,
+            images,
             info,
             price,
             title,
             type,
             inCart
           } = value.detailProduct;
+          //creating carousel
+
           return (
             <div className="container py-5">
               {/* title */}
@@ -32,7 +36,37 @@ export default class Details extends Component {
               <div className="row">
                 {/* product img */}
                 <div className="col-10 mx-auto col-md-6 my-3">
-                  <img src={img} alt="product" className="img-fluid" />
+                  {/* <img
+                    src={
+                      images ? images[0] : "http://via.placeholder.com/640x360"
+                    }
+                    alt="product"
+                    className="img-fluid"
+                  /> */}
+
+                  <Carousel>
+                    {images ? (
+                      images.map((image, index) => {
+                        return (
+                          <div key={index}>
+                            <img src={image} alt="product image" />
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div>
+                        <img
+                          src={
+                            images
+                              ? images[0]
+                              : "http://via.placeholder.com/640x360"
+                          }
+                          alt="product"
+                          className="img-fluid"
+                        />
+                      </div>
+                    )}
+                  </Carousel>
                 </div>
                 {/* product text */}
                 <div className="col-10 mx-auto col-md-6 img-fluid my-3 text-capitalize">
@@ -50,7 +84,12 @@ export default class Details extends Component {
                   <p className="text-capitalize font-weight-bold mt-3 mb-0">
                     Spécifications du produit:
                   </p>
-                  <p className="text-muted lead">{info}</p>
+                  <p
+                    className="text-muted lead"
+                    dangerouslySetInnerHTML={{
+                      __html: info
+                    }}
+                  ></p>
                   {/* buttons */}
                   <div>
                     <Link to="/products">

@@ -3,10 +3,11 @@ import PaypalExpressBtn from "react-paypal-express-checkout";
 import { db } from "../../firebase";
 
 export default class MyApp extends React.Component {
-  addOrder = (cart, client) => {
+  addOrder = (order, client) => {
     db.collection("orders")
       .add({
-        cart: cart
+        order,
+        dateCreated: new Date().toLocaleString()
       })
       .then(docRef => {
         console.log("Document written with ID: ", docRef.id);
@@ -14,7 +15,7 @@ export default class MyApp extends React.Component {
           .doc(docRef.id)
           .collection("clients")
           .add({
-            client: client
+            client
           })
           .then(docRef => {
             console.log("Document 2 written with ID: ", docRef.id);
@@ -38,7 +39,19 @@ export default class MyApp extends React.Component {
       //const client = { email: payment.email, address: payment.address };
       //const cart = { cart: this.props.cart };
 
-      this.addOrder(this.props.cart, {
+      let order = this.props.cart.map(item => {
+        return {
+          id: item.id,
+          name: item.title,
+          quantity: item.count,
+          unitPrice: item.price,
+          total: item.total
+        };
+      });
+
+      console.log("order", order);
+
+      this.addOrder(order, {
         email: payment.email,
         address: payment.address
       });

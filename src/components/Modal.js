@@ -10,7 +10,14 @@ export default class Modal extends Component {
       <ProductConsumer>
         {value => {
           const { modalOpen, closeModal } = value;
-          const { img, title, company, price, quantity } = value.modalProduct;
+          const {
+            img,
+            images,
+            title,
+            company,
+            price,
+            quantity
+          } = value.modalProduct;
 
           if (!modalOpen) {
             return null;
@@ -31,7 +38,11 @@ export default class Modal extends Component {
                   {/* modal content */}
                   <div className="row" id="modal-content">
                     <div className="col-8 mx-auto col-md-4 col-lg-4 p-5">
-                      <img src={img} alt="product" className="img-fluid" />
+                      <img
+                        src={images[0]}
+                        alt="product"
+                        className="img-fluid"
+                      />
                     </div>
                     <div className="col-10 mx-auto col-md-8 col-lg-8 text-left text-capitalize p-5">
                       <h3 className="text-info">{company}</h3>

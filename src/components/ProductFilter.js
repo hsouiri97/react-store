@@ -7,7 +7,7 @@ const ProductFilter = ({ products }) => {
   const context = useContext(ProductContext);
 
   function getUnique(items, value) {
-    return [...new Set(items.map(item => item[value]))];
+    return [...new Set(items.map(item => item[value].toLowerCase()))];
   }
 
   const { handleChange, type, company, price, minPrice, maxPrice } = context;
@@ -78,7 +78,7 @@ const ProductFilter = ({ products }) => {
                 name="company"
                 id="company"
                 value={company}
-                className="form-control"
+                className="form-control text-capitalize"
                 onChange={handleChange}
               >
                 {companies}

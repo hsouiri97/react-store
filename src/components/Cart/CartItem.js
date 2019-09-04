@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function CartItem({ item, value }) {
-  const { id, title, img, price, total, count, quantity } = item;
+  const { id, title, images, price, total, count, quantity } = item;
   const { changeCount, removeFromCart } = value;
   return (
     <tr>
       <td className="align-middle">
         <img
-          src={img}
+          src={images[0]}
           style={{ width: "5rem", height: "5rem" }}
           alt="product"
           className="img-fluid"
