@@ -8,7 +8,8 @@ export default class MyApp extends React.Component {
       .add({
         order,
         dateCreated: new Date().toLocaleString(),
-        client
+        client,
+        orderTotal: this.props.total
       })
       .then(docRef => {
         console.log("Document written with ID: ", docRef.id);
