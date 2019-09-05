@@ -34,6 +34,7 @@ export default class MyApp extends React.Component {
           id: item.id,
           name: item.title,
           quantity: item.count,
+          totalQuantity: item.quantity,
           unitPrice: item.price,
           total: item.total
         };
