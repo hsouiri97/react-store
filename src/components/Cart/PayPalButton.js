@@ -8,6 +8,8 @@ export default class MyApp extends React.Component {
       .add({
         order,
         dateCreated: new Date().toLocaleString(),
+        accepted: false,
+        archived: false,
         client,
         orderTotal: this.props.total
       })
