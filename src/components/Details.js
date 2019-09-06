@@ -18,7 +18,8 @@ export default class Details extends Component {
             price,
             title,
             type,
-            inCart
+            inCart,
+            quantity
           } = value.detailProduct;
           //creating carousel
 
@@ -95,16 +96,22 @@ export default class Details extends Component {
                     <Link to="/products">
                       <ButtonContainer>Retour aux produits</ButtonContainer>
                     </Link>
-                    <ButtonContainer
-                      cart
-                      disabled={inCart}
-                      onClick={() => {
-                        value.addToCart(id);
-                        value.openModal(id);
-                      }}
-                    >
-                      {inCart ? "Ajouté au panier" : "Ajouter au panier"}
-                    </ButtonContainer>
+                    {quantity > 0 ? (
+                      <ButtonContainer
+                        cart
+                        disabled={inCart}
+                        onClick={() => {
+                          value.addToCart(id);
+                          value.openModal(id);
+                        }}
+                      >
+                        {inCart ? "Ajouté au panier" : "Ajouter au panier"}
+                      </ButtonContainer>
+                    ) : (
+                      <ButtonContainer cart disabled={true}>
+                        en rupture de stock
+                      </ButtonContainer>
+                    )}
                   </div>
                 </div>
               </div>
