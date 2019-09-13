@@ -9,6 +9,7 @@ import ProductList from "./components/ProductList";
 import ProductsContainer from "./components/ProductsContainer";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
+import Contact from "./components/Contact";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/products" component={ProductsContainer} />
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
+          <Route path="/contact" component={Contact} />
           <Route component={Default} />
         </Switch>
         <Modal />

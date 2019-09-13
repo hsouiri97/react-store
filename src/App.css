@@ -172,6 +172,65 @@ body {
 }
 /*end hero*/
 
+/*contact page */
+.card {
+  max-height: 18rem;
+}
+
+.card-body a {
+  text-decoration: none !important;
+  color: var(--mainDark) !important;
+}
+
+.card-icon {
+  font-size: 5rem;
+  color: var(--lightBlue);
+}
+
+.gray-text {
+  color: #7a7676;
+}
+
+.time-list {
+  list-style-type: none;
+  margin-left: auto;
+}
+
+.time-list li {
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.time-list li span {
+  display: inline-block;
+  width: auto;
+}
+
+.time-list .week-name {
+  min-width: 180px;
+}
+
+.text-error {
+  color: red;
+  font-size: 1rem;
+}
+
+.has-error {
+  border-color: red !important;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+}
+
+.form-control:focus {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+/*end contact page */
+
 footer {
   position: relative;
   bottom: 0;
