@@ -83,28 +83,6 @@ export default class Contact extends Component {
     return valid;
   };
 
-  validateForm = errors => {
-    const { f_name, l_name, email, subject, message } = this.state;
-    let valid = true;
-    if (
-      f_name.trim() === "" ||
-      l_name.trim() === "" ||
-      email.trim() === "" ||
-      subject.trim() === "" ||
-      message.trim() === ""
-    ) {
-      valid = false;
-    } else {
-      Object.values(errors).forEach(val => val.length > 0 && (valid = false));
-    }
-
-    return valid;
-
-    // this.setState(() => {
-    //   return { valid: v };
-    // });
-  };
-
   resetForm = () => {
     this.setState(() => {
       return {
@@ -144,17 +122,12 @@ export default class Contact extends Component {
     this.resetForm();
   };
 
-  componentDidMount() {
-    //this.validateForm(this.state.errors);
-    //this.test();
-  }
-
   componentDidUpdate() {}
 
   render() {
     return (
       <React.Fragment>
-        <div className="container mb-5">
+        <div className="container mb-5 contact">
           <div className="text-center mb-3">
             <Title name="contactez" title="nous" />
             <h6>
@@ -332,17 +305,6 @@ export default class Contact extends Component {
                   </div>
                   <div className="row">
                     <div className="col-md-12 col-sm-12 col-xs-12">
-                      {/* <a
-                        href="https://www.google.com"
-                        target="blank"
-                        className={
-                          this.validateForm(this.state.errors)
-                            ? "btn btn-outline-info text-uppercase float-right"
-                            : "btn btn-outline-info text-uppercase float-right disabled-link"
-                        }
-                      >
-                        envoyer le message
-                      </a> */}
                       <button
                         type="button"
                         className="btn btn-outline-info"

@@ -229,7 +229,21 @@ body {
   -webkit-appearance: none;
   box-shadow: none !important;
 }
+
+.contact h6 {
+  color: var(--primaryColor);
+}
+
 /*end contact page */
+/*suppliers page*/
+.suppliers h3 {
+  color: var(--lightBlue);
+}
+
+.suppliers h6 {
+  color: var(--primaryColor);
+}
+/*end suppliers page*/
 
 footer {
   position: relative;

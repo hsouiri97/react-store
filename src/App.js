@@ -10,6 +10,7 @@ import ProductsContainer from "./components/ProductsContainer";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
+import Suppliers from "./components/Suppliers";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route path="/contact" component={Contact} />
+          <Route path="/suppliers" component={Suppliers} />
           <Route component={Default} />
         </Switch>
         <Modal />
