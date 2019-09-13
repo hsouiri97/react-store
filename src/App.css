@@ -245,6 +245,36 @@ body {
 }
 /*end suppliers page*/
 
+/*about page*/
+.about h6 {
+  color: var(--primaryColor);
+}
+
+.about h2 {
+  color: var(--lightBlue);
+}
+
+.about h3 {
+  color: var(--mainBlue);
+}
+
+.profile-img {
+  background-color: var(--mainBlue);
+}
+/*end about page*/
+
+.service {
+  background-color: #fff;
+}
+
+.service span {
+  font-size: 3.5rem;
+}
+
+.service h6 {
+  font-size: 1.3rem;
+}
+
 footer {
   position: relative;
   bottom: 0;
