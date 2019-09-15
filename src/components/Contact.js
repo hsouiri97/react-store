@@ -322,27 +322,27 @@ export default class Contact extends Component {
               </div>
             </div>
             <div className="col-md-4 col-sm-4 col-xs-12">
-              <h5>Heures d'ouverture</h5>
+              <h5>Horaires d'ouverture</h5>
               <ul className="time-list gray-text">
                 <li>
-                  <span className="week-name">Lundi</span> <span>12-6 PM</span>
+                  <span className="week-name">Lundi</span> <span>12-9 PM</span>
                 </li>
                 <li>
-                  <span className="week-name">Mardi</span> <span>12-6 PM</span>
+                  <span className="week-name">Mardi</span> <span>12-9 PM</span>
                 </li>
                 <li>
                   <span className="week-name">Mercredi</span>{" "}
-                  <span>12-6 PM</span>
+                  <span>12-9 PM</span>
                 </li>
                 <li>
-                  <span className="week-name">Jeudi</span> <span>12-6 PM</span>
+                  <span className="week-name">Jeudi</span> <span>12-9 PM</span>
                 </li>
                 <li>
                   <span className="week-name">Vendredi</span>{" "}
-                  <span>12-6 PM</span>
+                  <span>12-9 PM</span>
                 </li>
                 <li>
-                  <span className="week-name">Samedi</span> <span>12-6 PM</span>
+                  <span className="week-name">Samedi</span> <span>12-9 PM</span>
                 </li>
                 <li>
                   <span className="week-name">Diamanche</span>{" "}

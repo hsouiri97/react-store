@@ -68,7 +68,11 @@ body {
   outline: none;
 }
 
-.nav-link {
+.nav-link:hover {
+  color: var(--mainYellow) !important;
+}
+
+.nav-item a {
   text-decoration: none !important;
 }
 
@@ -163,13 +167,59 @@ body {
 }
 
 /*hero*/
+.carousel-item {
+  -webkit-transform-style: preserve-3d !important;
+  -moz-transform-style: preserve-3d !important;
+  transform-style: preserve-3d !important;
+}
+
 .banner {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   height: 100vh;
+  filter: invert(30%);
 }
+
+.carousel-caption {
+  /* padding-bottom: 16rem; */
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.carousel-caption h2 {
+  font-size: 4.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.carousel-caption h2 span {
+  color: var(--mainYellow);
+}
+
+.carousel-caption a {
+  background: var(--lightBlue);
+  padding: 1rem 2.1rem;
+  display: inline-block;
+  margin-top: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 25px;
+  text-decoration: none !important;
+}
+
+.carousel-caption a:hover {
+  background: var(--mainYellow);
+  padding: 1rem 2.1rem;
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--lightBlue);
+  text-transform: uppercase;
+  border-radius: 25px;
+}
+
 /*end hero*/
 
 /*contact page */

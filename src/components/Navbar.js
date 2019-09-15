@@ -15,9 +15,9 @@ export default class Navbar extends Component {
           </Link>
           <div className="d-flex flex-row order-2 order-lg-3">
             <ul className="navbar-nav flex-row">
-              <li className="nav-item ml-3">
+              <li className="nav-item ml-3 mb-2">
                 <Link to="/cart">
-                  <span className="cart-icon">
+                  <span className="cart-icon mb-5">
                     <FaShoppingCart />
                   </span>
                 </Link>
