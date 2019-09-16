@@ -29,7 +29,7 @@ export default class Hero extends Component {
                 backgroundRepeat: "no-repeat"
               }}
             />
-            <div className="carousel-caption text-center">
+            <div className="carousel-caption d-none d-md-block text-center">
               <h2
                 className="animated bounceInLeft"
                 style={{ animationDelay: "1s" }}
@@ -62,7 +62,7 @@ export default class Hero extends Component {
                 backgroundRepeat: "no-repeat"
               }}
             />
-            <div className="carousel-caption text-center align-self-center">
+            <div className="carousel-caption d-none d-md-block align-self-center">
               <h2
                 className="animated lightSpeedIn"
                 style={{ animationDelay: "1s" }}
@@ -95,7 +95,7 @@ export default class Hero extends Component {
                 backgroundRepeat: "no-repeat"
               }}
             />
-            <div className="carousel-caption text-center">
+            <div className="carousel-caption d-none d-md-block text-center">
               <h2
                 className="animated zoomInLeft"
                 style={{ animationDelay: "1s" }}
